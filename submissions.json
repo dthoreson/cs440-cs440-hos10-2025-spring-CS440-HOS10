@@ -1,0 +1,15 @@
+[
+  {
+    "title": "Boeing 737 MAX and the MCAS Malfunction",
+    "description": "The Boeing 737 MAX was equipped with a flight control system called MCAS (Maneuvering Characteristics Augmentation System). Its job was to automatically push the nose of the plane down during specific flight conditions to prevent stalls. Unfortunately, MCAS relied on just one sensor, the Angle of Attack (AoA) sensor, to make that decision, which left the system vulnerable if that single sensor gave incorrect data.",
+    "objectives": "- Make sure all sensor inputs are checked against each other before being trusted.\r\n- Don\u2019t allow MCAS to activate unless multiple sensors agree something is wrong.\r\n- Build the system so there's full traceability, from requirements to testing, so we always know how and why critical decisions are made.",
+    "roles": "QA Engineer",
+    "standards": "IEEE-730",
+    "test_plan": "- Run tests where sensor data disagrees and see how the system reacts.\r\n- Feed in bad or unexpected values to make sure the system handles them safely.\r\n- Confirm that MCAS doesn\u2019t kick in unless the sensors are aligned.\r\n- Include pilot-in-the-loop simulations to observe real-time human-machine interaction.",
+    "defect_management": "Use a bug tracking system where flight-critical issues are labeled high priority and fixed within 24 hours. Any issues related to MCAS are automatically flagged for extra attention. Every fix must tie back to a requirement and be retested before closing.",
+    "reviews": "Hold formal code reviews anytime MCAS logic changes. Conduct independent verification and validation (IV&V) and include the FAA in audit reviews to ensure transparency and compliance.",
+    "supplier_control": "Third-party vendors must provide complete test results, access to their source code, and detailed design docs. The contracts will clearly require them to meet safety and quality standards.",
+    "references": "Curran, N. T., Kennings, T. W., & Shin, K. G. (2023). Analysis and prevention of MCAS-induced crashes. arXiv. https://arxiv.org/abs/2301.08779\r\n\r\nFederal Aviation Administration. (2020). Summary of the FAA\u2019s review of the Boeing 737 MAX. https://www.faa.gov/sites/faa.gov/files/2022-08/737_RTS_Summary.pdf\r\n\r\nMitcham, C. (2020). The Boeing 737 MAX: Lessons for engineering ethics. Science and Engineering Ethics, 26(6), 3107\u20133124. https://doi.org/10.1007/s11948-020-00252-y\r\n\r\nNASA Independent Verification and Validation Program. (n.d.). IV&V capabilities & services. NASA. https://www.nasa.gov/ivv-services/\r\n\r\nTakase, R., Entzinger, J. O., & Suzuki, S. (2020). Pilot-in-the-loop simulation of simple adaptive fault-tolerant controller. Aerospace Science and Technology, 104, 106125. https://doi.org/10.1016/j.ast.2020.106125",
+    "purpose": "This plan exists to prevent tragedies like the 737 MAX crashes. By building in checks, testing for failures, and requiring multiple safeguards throughout the software lifecycle, we make sure critical systems like MCAS behave predictably and safely, even under unexpected conditions."
+  }
+]
